@@ -1,3 +1,7 @@
+// Pull the ambient haven-proxy module declarations into every tsconfig that
+// compiles this file (gui and binary type-check core sources with their own
+// programs, which don't include core's .d.ts files by default).
+/// <reference path="./haven-proxy.d.ts" />
 import { LLMOptions } from "../../index.js";
 import { LlmApiRequestType } from "../openaiTypeConverters.js";
 
