@@ -253,6 +253,18 @@ export const PROVIDER_TOOL_SUPPORT: Record<string, (model: string) => boolean> =
       const lower = model.toLowerCase();
       return lower.startsWith("mercury-2");
     },
+    haven: (model) => {
+      // From the Haven catalog's tool_call flags (haven-proxy defaults.js /
+      // GET {root}/pricing/). gemma4-31b and deepseek-v4-flash lack tool_call.
+      const lower = model.toLowerCase();
+      return [
+        "glm-5-2",
+        "gpt-oss-120b",
+        "gpt-oss-safeguard-120b",
+        "kimi-k3",
+        "llama3-3-70b",
+      ].some((m) => lower.startsWith(m));
+    },
     deepseek: (model) => {
       // https://api-docs.deepseek.com/quick_start/pricing
       // https://api-docs.deepseek.com/guides/function_calling

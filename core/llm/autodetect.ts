@@ -69,6 +69,7 @@ const PROVIDER_HANDLES_TEMPLATING: string[] = [
   "xAI",
   "minimax",
   "groq",
+  "haven",
   "gemini",
   "docker",
   "nous",

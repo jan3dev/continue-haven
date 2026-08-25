@@ -26,6 +26,7 @@ import Flowise from "./Flowise";
 import FunctionNetwork from "./FunctionNetwork";
 import Gemini from "./Gemini";
 import Groq from "./Groq";
+import Haven from "./Haven";
 import HuggingFaceInferenceAPI from "./HuggingFaceInferenceAPI";
 import HuggingFaceTEIEmbeddingsProvider from "./HuggingFaceTEI";
 import HuggingFaceTGI from "./HuggingFaceTGI";
@@ -101,6 +102,7 @@ export const LLMClasses = [
   DeepInfra,
   Flowise,
   Groq,
+  Haven,
   Fireworks,
   NCompass,
   Cloudflare,
