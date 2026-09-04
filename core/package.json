@@ -82,6 +82,7 @@
     "follow-redirects": "^1.15.5",
     "google-auth-library": "^10.4.1",
     "handlebars": "^4.7.8",
+    "haven-proxy": "github:jan3dev/haven-proxy#semver:0.x",
     "http-proxy-agent": "^7.0.1",
     "https-proxy-agent": "^7.0.3",
     "iconv-lite": "^0.6.3",

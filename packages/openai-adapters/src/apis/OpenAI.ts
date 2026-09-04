@@ -161,12 +161,14 @@ export class OpenAIApi implements BaseLlmApi {
     );
     let lastChunkWithUsage: ChatCompletionChunk | undefined;
     for await (const result of response) {
-      // Check if this chunk contains usage information
-      if (result.usage) {
-        // Store it to emit after all content chunks
-        lastChunkWithUsage = result;
-      } else {
+      // Defer only a usage-*only* chunk (no choices), which is how OpenAI
+      // reports usage with stream_options.include_usage. Keying on `usage`
+      // alone would swallow the whole completion on backends like vLLM, which
+      // attach usage to every chunk.
+      if (result.choices?.length) {
         yield result;
+      } else if (result.usage) {
+        lastChunkWithUsage = result;
       }
     }
     // Emit the usage chunk at the end if we have one
